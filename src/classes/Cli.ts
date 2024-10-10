@@ -7,7 +7,7 @@ import Wheel from "./Wheel.js";
 
 // define the Cli class
 class Cli {
-  vehicles: (Car)[] | (Truck)[] | (Motorbike)[];
+  vehicles: (Car | Truck | Motorbike)[];
   selectedVehicleVin: string | undefined;
   exit: boolean = false;
 
