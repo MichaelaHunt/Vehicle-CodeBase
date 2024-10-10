@@ -168,10 +168,6 @@ class Cli {
         },
       ])
       .then((answers) => {
-        // TODO: Use the answers object to pass the required properties to the Truck constructor
-        // TODO: push the truck to the vehicles array
-        // TODO: set the selectedVehicleVin to the vin of the truck
-        // TODO: perform actions on the truck
         const truck = new Truck(
           Cli.generateVin(),
           answers.color,
@@ -180,8 +176,8 @@ class Cli {
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
+          [],
           parseInt(answers.towingCapacity),
-          []
         );
         // push the car to the vehicles array
         this.vehicles.push(truck);
@@ -380,6 +376,7 @@ class Cli {
           }
         } else if (answers.action === 'Tow a vehicle') {
           // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
+
           // TODO: there's no way find vehicle to tow is async
           //use selectedvehiclevin to get the vehicle
           let vehicle;
