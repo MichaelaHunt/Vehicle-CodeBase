@@ -379,33 +379,36 @@ class Cli {
 
           // TODO: there's no way find vehicle to tow is async
           //use selectedvehiclevin to get the vehicle
-          let vehicle;
+          let vehicle: any;
           this.vehicles.forEach((item) => {
             if (item.vin === this.selectedVehicleVin) {
               vehicle = item;
             }
           });
-          if (vehicle != Truck) {//Selected vehicle is not a truck
-            console.log("Error: cannot tow a vehicle without a truck.");
-            this.performActions();
-          } else {//Selected vehicle IS a truck
+          if (vehicle instanceof Truck) {//Selected vehicle is a truck
             let trucky: Truck = vehicle;
             this.findVehicleToTow(trucky);
+            return;
+          } else {//Selected vehicle is NOT a truck
+            console.log("Error: cannot tow a vehicle without a truck.");
+            // this.performActions();
+            //says to perform actions after, but it does it automatically, so here's the code it's just commented out cause I don't think you actually want that. 
           }
         } else if (answers.action === 'Do a wheelie') {
           //use selectedvehiclevin to get the vehicle
-          let vehicle;
+          let vehicle: any;
           this.vehicles.forEach((item) => {
             if (item.vin === this.selectedVehicleVin) {
               vehicle = item;
             }
           });
-          if (vehicle != Motorbike) {//not able to do wheelie!
-            console.log("Error: only bikes can perform wheelies.");
-            this.performActions();
-          } else {
+          if (vehicle instanceof Motorbike) {//not able to do wheelie!
             let bike: Motorbike = vehicle;
-            console.log(`Motorbike ${bike.make} ${bike.model} is doing a wheelie!`);
+            bike.wheelie();
+            return;
+          } else {
+            console.log("Error: only bikes can perform wheelies.");
+            // this.performActions();
           }
         }
         else if (answers.action === 'Select or create another vehicle') {
