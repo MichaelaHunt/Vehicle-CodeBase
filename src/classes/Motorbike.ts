@@ -38,7 +38,7 @@ class Motorbike extends Vehicle {
   wheelie(): void {
     console.log(`Motorbike ${this.make} ${this.model} is doing a wheelie!`);
   }
-  
+
   // TODO: Override the printDetails method from the Vehicle class
   // TODO: The method should call the printDetails method of the parent class
   // TODO: The method should log the details of the Motorbike
@@ -52,7 +52,14 @@ class Motorbike extends Vehicle {
     console.log(`Motorbike weight: ${this.weight} lbs`);
     console.log(`Motorbike top speed: ${this.topSpeed} mph`);
     console.log(`Motorbike color: ${this.color}`);
-    console.log(`Motorbike wheels: ${this.wheels}`);//check this works
+    
+    // Print details of the wheels
+    console.log(
+      `Wheel 1: ${this.wheels[0].getDiameter} inch with a ${this.wheels[0].getTireBrand} tire`
+    );
+    console.log(
+      `Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`
+    );
   }
 }
 
