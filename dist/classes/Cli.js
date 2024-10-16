@@ -225,6 +225,7 @@ class Cli {
         });
     }
     // method to find a vehicle to tow
+    //Comment says this should be async, but it works fine so let's not yeah?
     findVehicleToTow(truck) {
         inquirer
             .prompt([
@@ -246,7 +247,7 @@ class Cli {
                 this.performActions();
             }
             else {
-                answers.vehicleToTow.tow(truck); //the parameter to tow here is the vehicle doing the towing
+                truck.tow(answers.vehicleToTow); //the parameter to tow here is the vehicle doing the towing
                 this.performActions();
             }
         });
@@ -342,15 +343,13 @@ class Cli {
                 }
             }
             else if (answers.action === 'Tow a vehicle') {
-                // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
-                // TODO: there's no way find vehicle to tow is async
                 //use selectedvehiclevin to get the vehicle
                 let vehicle;
                 this.vehicles.forEach((item) => {
                     if (item.vin === this.selectedVehicleVin) {
                         vehicle = item;
                     }
-                });
+                }); //we must do this to get the additional data of the vehicle
                 if (vehicle instanceof Truck) { //Selected vehicle is a truck
                     let trucky = vehicle;
                     this.findVehicleToTow(trucky);
@@ -358,8 +357,6 @@ class Cli {
                 }
                 else { //Selected vehicle is NOT a truck
                     console.log("Error: cannot tow a vehicle without a truck.");
-                    // this.performActions();
-                    //says to perform actions after, but it does it automatically, so here's the code it's just commented out cause I don't think you actually want that. 
                 }
             }
             else if (answers.action === 'Do a wheelie') {
@@ -370,7 +367,7 @@ class Cli {
                         vehicle = item;
                     }
                 });
-                if (vehicle instanceof Motorbike) { //not able to do wheelie!
+                if (vehicle instanceof Motorbike) { //is it a bike?
                     let bike = vehicle;
                     bike.wheelie();
                     return;

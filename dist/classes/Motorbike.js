@@ -17,16 +17,14 @@ class Motorbike extends Vehicle {
         this.weight = weight;
         this.topSpeed = topSpeed;
         if (wheels.length != 2) {
-            this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
+            this.wheels = [new Wheel(), new Wheel()];
         }
         else {
             this.wheels = wheels;
         }
     }
-    // TODO: Implement the wheelie method
-    // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
     wheelie() {
-        console.log(`"Motorbike ${this.make} ${this.model} is doing a wheelie!"`);
+        console.log(`Motorbike ${this.make} ${this.model} is doing a wheelie!`);
     }
     // TODO: Override the printDetails method from the Vehicle class
     // TODO: The method should call the printDetails method of the parent class
@@ -41,7 +39,9 @@ class Motorbike extends Vehicle {
         console.log(`Motorbike weight: ${this.weight} lbs`);
         console.log(`Motorbike top speed: ${this.topSpeed} mph`);
         console.log(`Motorbike color: ${this.color}`);
-        console.log(`Motorbike wheels: ${this.wheels}`); //check this works
+        // Print details of the wheels
+        console.log(`Wheel 1: ${this.wheels[0].getDiameter} inch with a ${this.wheels[0].getTireBrand} tire`);
+        console.log(`Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`);
     }
 }
 // Export the Motorbike class as the default export
