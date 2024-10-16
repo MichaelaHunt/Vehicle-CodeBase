@@ -11,6 +11,8 @@
   - [Usage](#usage)
   - [Credits](#credits)  
   - [License](#license)
+  - [Screenshot](#screenshot)
+  - [Video Walkthrough](#video-walkthrough)
   - [Tests](#tests)
 
   ## Installation
@@ -31,9 +33,13 @@
 
   This project is protected under the MIT license.
 
-  ## Screenshot(s)
+  ## Screenshot
+
+  ![alt text](<Screenshot 2024-10-15 at 10.42.42 PM-1.png>)
 
   ## Video Walkthrough
+
+  https://drive.google.com/file/d/1tJORZehZMpYwG6ktvdulAcopa9UaM999/view?usp=drive_link
 
   ## Tests
 

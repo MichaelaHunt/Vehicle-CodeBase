@@ -3,6 +3,7 @@ import inquirer from "inquirer";
 import Truck from "./Truck.js";
 import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
+import Wheel from "./Wheel.js";
 // define the Cli class
 class Cli {
     constructor(vehicles) {
@@ -215,7 +216,7 @@ class Cli {
             },
         ])
             .then((answers) => {
-            const bike = new Motorbike(Cli.generateVin(), answers.color, answers.make, answers.model, parseInt(answers.year), parseInt(answers.weight), parseInt(answers.topSpeed), []);
+            const bike = new Motorbike(Cli.generateVin(), answers.color, answers.make, answers.model, parseInt(answers.year), parseInt(answers.weight), parseInt(answers.topSpeed), [new Wheel(answers.frontWheelDiameter, answers.frontWheelBrand), new Wheel(answers.rearWheelDiameter, answers.rearWheelBrand)]);
             // push the car to the vehicles array
             this.vehicles.push(bike);
             // set the selectedVehicleVin to the vin of the car
@@ -370,7 +371,6 @@ class Cli {
                 if (vehicle instanceof Motorbike) { //is it a bike?
                     let bike = vehicle;
                     bike.wheelie();
-                    return;
                 }
                 else {
                     console.log("Error: only bikes can perform wheelies.");

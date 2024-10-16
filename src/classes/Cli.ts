@@ -401,7 +401,6 @@ class Cli {
           if (vehicle instanceof Motorbike) {//is it a bike?
             let bike: Motorbike = vehicle;
             bike.wheelie();
-            return;
           } else {
             console.log("Error: only bikes can perform wheelies.");
             // this.performActions();
